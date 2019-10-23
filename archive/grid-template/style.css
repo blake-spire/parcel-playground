@@ -1,0 +1,60 @@
+body > * {
+  border: 1px solid aquamarine;
+  border-collapse: collapse;
+}
+
+body {
+  /* APPROACH 1
+  display: grid;
+  grid-gap: 1em;
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 95vh;
+  */
+  /* APPROACH 2 */
+  min-height: 95vh;
+  display: grid;
+  grid-gap: 1em;
+  grid:
+    "header" auto
+    "nav" auto
+    "main" 1fr
+    "footer" auto
+    / 1fr;
+}
+
+@media screen and (min-width: 40em) {
+  /* APPROACH 1
+  body {
+    grid-template-columns: 12em 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+  header {
+    grid-column: span 2;
+  }
+  nav {
+    grid-row: span 2;
+  }
+  */
+
+  /* APPROACH 2 */
+  body {
+    grid:
+      "header header" auto
+      "nav main" 1fr
+      "nav footer" auto
+      / 12em 1fr;
+  }
+}
+
+header {
+  grid-area: header;
+}
+nav {
+  grid-area: nav;
+}
+main {
+  grid-area: main;
+}
+footer {
+  grid-area: footer;
+}
